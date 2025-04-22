@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffdbe7;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  transition: background-color 0.5s ease;
+}
+
+.container {
+  text-align: center;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+h1 {
+  color: #333;
+  margin: 20px 0;
+  transition: all 0.5s ease;
+}
+
+.gif {
+  width: 150px;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+}
+
+.buttons {
+  margin-top: 20px;
+  transition: all 0.5s ease;
+}
+
+button {
+  background-color: #ff6b81;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  margin: 0 10px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+#resultContainer {
+  margin-top: 20px;
+  display: none;
+}
+
+/* Estilo do popup fofinho */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1000;
+  max-width: 80%;
+  animation: pop 0.4s ease-out;
+  border: 3px solid #ff6b81;
+}
+
+.popup img {
+  width: 100px;
+  margin-bottom: 15px;
+}
+
+.popup p {
+  font-size: 18px;
+  color: #ff6b81;
+  margin: 0;
+  font-weight: bold;
+}
+
+.popup button {
+  margin-top: 20px;
+  background-color: #ff6b81;
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Estilo da tela de resposta */
+.love-screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff8fa3;
+  z-index: 1001;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.love-screen h2 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.love-screen .big-heart {
+  font-size: 5rem;
+  animation: heartbeat 1.5s infinite;
+  margin: 20px 0;
+}
+
+.hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.heart {
+  position: absolute;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  animation: float 4s ease-in infinite;
+  opacity: 0;
+}
+
+@keyframes pop {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  80% { transform: translate(-50%, -50%) scale(1.1); }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
